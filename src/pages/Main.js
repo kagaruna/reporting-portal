@@ -1,9 +1,14 @@
 import React from "react";
 import "../css/header.scss";
+import DevelopmentPage from "../components/DevelopmentPage";
 
 class Main extends React.Component {
     render() {
-        return <section>Личный кабинет 2s</section>;
+        return (
+            <section>
+                <DevelopmentPage title='Личный кабинет' />
+            </section>
+        );
     }
 }
 

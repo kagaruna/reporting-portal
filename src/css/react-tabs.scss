@@ -1,0 +1,52 @@
+@import "./colors.scss";
+
+.react-tabs {
+    -webkit-tap-highlight-color: transparent;
+
+    &__tab-list {
+        padding: 0;
+    }
+
+    &__tab {
+        display: inline-block;
+        position: relative;
+        list-style: none;
+        margin: 0 32px 0 0;
+        font-size: 20px;
+        line-height: 28px;
+        font-weight: 500;
+        cursor: pointer;
+        color: $icon-color;
+
+        &--selected {
+            color: $text-color;
+
+            &:before {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                top: 100%;
+                border-radius: 2px;
+                background: $accent-color;
+            }
+        }
+
+        &--disabled {
+            color: $icon-color;
+            cursor: default;
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    &__tab-panel {
+        display: none;
+
+        &--selected {
+            display: block;
+        }
+    }
+}
