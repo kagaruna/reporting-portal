@@ -1,6 +1,9 @@
 import React from "react";
 import Moment from "react-moment";
 import SidebarReports from "../components/SidebarReports";
+import ReportDescription from "../components/ReportDescription";
+import CardList from "../components/CardList";
+
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "../css/reports.scss";
 import "../css/react-tabs.scss";
@@ -9,13 +12,154 @@ class Reports extends React.Component {
     constructor(props) {
         super(props);
 
+        function randomDate(start, end) {
+            return new Date(
+                start.getTime() +
+                    Math.random() * (end.getTime() - start.getTime())
+            );
+        }
+
         const date = new Date();
 
         this.state = {
-            title: "Оперативный отчет",
+            title: "Оперативный отчет о результатах деятельности ВТБ РБ",
             description:
                 "Оперативный отчёт о результатах деятельности представляет собой важный инструмент для анализа и контроля работы предприятия. Он позволяет отслеживать выполнение планов, анализировать эффективность работы подразделений и своевременно выявлять проблемы.",
             date: <Moment date={date} format='DD.MM.YYYY' />,
+            cards: [
+                {
+                    id: 1,
+                    title: "Оперативные показатели",
+                    update: (
+                        <Moment
+                            date={randomDate(new Date(2024, 0, 1), new Date())}
+                            format='DD.MM.YYYY'
+                        />
+                    ),
+                    isFavorites: false,
+                },
+                {
+                    id: 2,
+                    title: "Продажи",
+                    update: (
+                        <Moment
+                            date={randomDate(new Date(2024, 0, 1), new Date())}
+                            format='DD.MM.YYYY'
+                        />
+                    ),
+                    isFavorites: false,
+                },
+                {
+                    id: 3,
+                    title: "Канальные детализации",
+                    update: (
+                        <Moment
+                            date={randomDate(new Date(2024, 0, 1), new Date())}
+                            format='DD.MM.YYYY'
+                        />
+                    ),
+                    isFavorites: false,
+                },
+                {
+                    id: 4,
+                    title: "Портфели и приросты",
+                    update: (
+                        <Moment
+                            date={randomDate(new Date(2024, 0, 1), new Date())}
+                            format='DD.MM.YYYY'
+                        />
+                    ),
+                    isFavorites: false,
+                },
+                {
+                    id: 5,
+                    title: "Клиентская аналитика",
+                    update: (
+                        <Moment
+                            date={randomDate(new Date(2024, 0, 1), new Date())}
+                            format='DD.MM.YYYY'
+                        />
+                    ),
+                    isFavorites: false,
+                },
+                {
+                    id: 6,
+                    title: "Общие финансовые показатели ГБЛ РБ",
+                    update: (
+                        <Moment
+                            date={randomDate(new Date(2024, 0, 1), new Date())}
+                            format='DD.MM.YYYY'
+                        />
+                    ),
+                    isFavorites: false,
+                },
+                {
+                    id: 7,
+                    title: "Финансовые показатели ГБЛ РБ",
+                    update: (
+                        <Moment
+                            date={randomDate(new Date(2024, 0, 1), new Date())}
+                            format='DD.MM.YYYY'
+                        />
+                    ),
+                    isFavorites: false,
+                },
+                {
+                    id: 8,
+                    title: "Финансовые показатели ВТБ РБ",
+                    update: (
+                        <Moment
+                            date={randomDate(new Date(2024, 0, 1), new Date())}
+                            format='DD.MM.YYYY'
+                        />
+                    ),
+                    isFavorites: false,
+                },
+                {
+                    id: 9,
+                    title: "Исполнение плана по АУР",
+                    update: (
+                        <Moment
+                            date={randomDate(new Date(2024, 0, 1), new Date())}
+                            format='DD.MM.YYYY'
+                        />
+                    ),
+                    isFavorites: false,
+                },
+                {
+                    id: 10,
+                    title: "Доходность по продуктам",
+                    update: (
+                        <Moment
+                            date={randomDate(new Date(2024, 0, 1), new Date())}
+                            format='DD.MM.YYYY'
+                        />
+                    ),
+                    isFavorites: true,
+                },
+                {
+                    id: 11,
+                    title: "Рентабельность новых выдач по кредитным продуктам",
+                    update: (
+                        <Moment
+                            date={randomDate(new Date(2024, 0, 1), new Date())}
+                            format='DD.MM.YYYY'
+                        />
+                    ),
+                    isFavorites: false,
+                },
+                {
+                    id: 9,
+                    title: "Приложения",
+                    update: (
+                        <Moment
+                            date={randomDate(new Date(2024, 0, 1), new Date())}
+                            format='DD.MM.YYYY'
+                        />
+                    ),
+                    isFavorites: false,
+                },
+            ],
         };
     }
 
@@ -44,20 +188,15 @@ class Reports extends React.Component {
 
                                     <TabPanel>
                                         <div className='report-card__description'>
-                                            {this.state.description}
+                                            <ReportDescription
+                                                name='Примечание'
+                                                text={this.state.description}
+                                            />
                                         </div>
                                         <div className='report-card__list-wrapper'>
-                                            <div className='cardlist'>
-                                                <div className='cardlist__item'>
-                                                    <div className='item-image'></div>
-                                                    <div className='item-options'>
-                                                        <div className='item-options__date'></div>
-                                                    </div>
-                                                    <div className='item-title'>
-                                                        Оперативные показатели
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <CardList
+                                                cards={this.state.cards}
+                                            />
                                         </div>
                                     </TabPanel>
                                     <TabPanel>

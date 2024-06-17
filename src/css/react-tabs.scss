@@ -2,9 +2,13 @@
 
 .react-tabs {
     -webkit-tap-highlight-color: transparent;
+    position: relative;
+    height: 100%;
+    overflow: hidden;
 
     &__tab-list {
         padding: 0;
+        margin: 0;
     }
 
     &__tab {
@@ -46,7 +50,12 @@
         display: none;
 
         &--selected {
-            display: block;
+            display: flex;
+            flex-direction: column;
+            overflow-x: auto;
+            height: calc(100% - 24px);
+            padding: 0 0 24px 0;
+            margin: 24px 0 0 0;
         }
     }
 }

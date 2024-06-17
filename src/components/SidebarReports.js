@@ -99,7 +99,7 @@ function SidebarReports() {
                 <label
                     onClick={() => handleMenuClick(data)}
                     className='left-sidebar__menu-item--name'>
-                    {data.name}{" "}
+                    {data.name}
                 </label>
                 {hasSubMenu && (
                     <div
@@ -156,7 +156,18 @@ function SidebarReports() {
 
     return (
         <nav id='left-sidebar' className='left-sidebar'>
-            <div className='left-sidebar__functions'></div>
+            <div className='left-sidebar__functions'>
+                <div className='sidebar-btns'>
+                    <div className='sidebar-btns__item'>
+                        <SvgIcon id='favorite-icon' />
+                        <span>Избранное</span>
+                    </div>
+                    <div className='sidebar-btns__item'>
+                        <SvgIcon id='last-icon' />
+                        <span>Последние</span>
+                    </div>
+                </div>
+            </div>
             <div className='left-sidebar__menu'>
                 <ul>
                     {menus.map((menu, index) => {
