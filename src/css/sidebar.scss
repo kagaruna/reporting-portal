@@ -14,7 +14,6 @@
         display: flex;
         width: calc(100% - 48px);
         height: 40px;
-        background: $bg-color;
         margin: 24px 24px 48px 24px;
 
         &::after {
@@ -26,6 +25,37 @@
             height: 1px;
             margin: 24px 0 0 0;
             background: $line-color;
+        }
+
+        .sidebar-btns {
+            position: relative;
+            width: calc(100% + 16px);
+            display: flex;
+            justify-content: space-between;
+
+            &__item {
+                position: relative;
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                justify-content: center;
+                background: $bg-color;
+                width: 50%;
+                border-radius: 8px;
+                margin: 0 16px 0 0;
+                cursor: not-allowed;
+
+                svg {
+                    width: 16px;
+                    height: 16px;
+                    margin: 0 8px 0 0;
+                    fill: $icon-color;
+                }
+
+                &:nth-child(2) {
+                    margin: 0;
+                }
+            }
         }
     }
 
@@ -87,6 +117,16 @@
             }
             &[dept="8"] {
                 margin-left: 168px;
+            }
+
+            &:hover {
+                .left-sidebar__menu-item--name {
+                    color: $primary-color;
+                    cursor: pointer;
+                }
+                svg {
+                    fill: $accent-color;
+                }
             }
         }
     }

@@ -7,7 +7,7 @@ header {
     width: 100%;
     height: 80px;
     background: $white-color;
-    padding: 22px 24px 22px 350px;
+    padding: 22px 24px 22px 260px;
 
     .logo {
         position: absolute;
@@ -33,9 +33,19 @@ header {
         display: flex;
         align-items: center;
         text-decoration: none;
-        font-size: 18px;
+        font-size: 16px;
         color: $text-color;
         margin: 0 40px 0 0;
+
+        // &:nth-child(1) {
+        //     width: 174px;
+        // }
+        // &:nth-child(2) {
+        //     width: 132px;
+        // }
+        // &:nth-child(3) {
+        //     width: 105px;
+        // }
 
         &:hover {
             color: $primary-color;
@@ -65,9 +75,11 @@ header {
 }
 
 .nav-icon {
-    width: 24px;
-    height: 24px;
-    margin: 0 8px 0 0;
+    // width: 24px;
+    // height: 24px;
+    width: 20px;
+    height: 20px;
+    margin: 0 7px 0 0;
     fill: $icon-color;
 }
 
