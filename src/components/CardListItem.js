@@ -1,19 +1,37 @@
 import React from "react";
 import SvgIcon from "./SvgIcon";
 
+// class CardListItem extends React.Component {
+//     card = this.props.card;
+//     render() {
+//         return (
+//             <div className='cardlist__item'>
+//                 <div className='item-image'></div>
+//                 <div className='item-options'>
+//                     <div className='item-options__date'>
+//                         <SvgIcon id='clock-icon' />
+//                         {this.card.update}
+//                     </div>
+//                 </div>
+//                 <div className='item-title'>{this.card.title}</div>
+//             </div>
+//         );
+//     }
+// }
+
 class CardListItem extends React.Component {
-    card = this.props.card;
     render() {
+        const { card, onClick } = this.props;
         return (
-            <div className='cardlist__item'>
+            <div className='cardlist__item' onClick={() => onClick(card)}>
                 <div className='item-image'></div>
                 <div className='item-options'>
                     <div className='item-options__date'>
                         <SvgIcon id='clock-icon' />
-                        {this.card.update}
+                        {card.update}
                     </div>
                 </div>
-                <div className='item-title'>{this.card.title}</div>
+                <div className='item-title'>{card.title}</div>
             </div>
         );
     }

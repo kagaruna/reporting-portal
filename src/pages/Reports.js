@@ -3,6 +3,7 @@ import Moment from "react-moment";
 import SidebarReports from "../components/SidebarReports";
 import ReportDescription from "../components/ReportDescription";
 import CardList from "../components/CardList";
+import ModalCard from "../components/ModalCard";
 
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "../css/reports.scss";
@@ -30,6 +31,7 @@ class Reports extends React.Component {
                 {
                     id: 1,
                     title: "Оперативные показатели",
+                    description: "Описание",
                     update: (
                         <Moment
                             date={randomDate(new Date(2024, 0, 1), new Date())}
@@ -160,10 +162,27 @@ class Reports extends React.Component {
                     isFavorites: false,
                 },
             ],
+            showModal: false,
+            selectedCard: null,
         };
     }
 
+    handleCardClick = (card) => {
+        this.setState({
+            selectedCard: card,
+            showModal: true,
+        });
+    };
+
+    handleCloseModal = () => {
+        this.setState({
+            showModal: false,
+            selectedCard: null,
+        });
+    };
+
     render() {
+        const { cards, showModal, selectedCard } = this.state;
         return (
             <section className='reports-page'>
                 <aside>
@@ -195,7 +214,10 @@ class Reports extends React.Component {
                                         </div>
                                         <div className='report-card__list-wrapper'>
                                             <CardList
-                                                cards={this.state.cards}
+                                                cards={cards}
+                                                onCardClick={
+                                                    this.handleCardClick
+                                                }
                                             />
                                         </div>
                                     </TabPanel>
@@ -232,6 +254,11 @@ class Reports extends React.Component {
                         </div>
                     </div>
                 </main>
+                <ModalCard
+                    show={showModal}
+                    onClose={this.handleCloseModal}
+                    card={selectedCard}
+                />
             </section>
         );
     }
