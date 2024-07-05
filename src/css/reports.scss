@@ -107,10 +107,29 @@ main {
                 padding: 16px;
 
                 .item-image {
+                    position: relative;
                     width: 100%;
                     aspect-ratio: 16 / 9;
                     // padding-top: 56.25%;
                     background: $bg-color;
+
+                    .no-image {
+                        position: absolute;
+                        display: flex;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        align-items: center;
+                        justify-content: center;
+
+                        svg {
+                            position: relative;
+                            display: block;
+                            height: 80px;
+                            fill: #dfe5f0;
+                        }
+                    }
                 }
                 .item-options {
                     position: relative;
@@ -146,6 +165,13 @@ main {
                     font-weight: 500;
                     color: $text-color;
                 }
+
+                &:hover {
+                    cursor: pointer;
+                    box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.06),
+                        0px 2px 6px rgba(0, 0, 0, 0.04),
+                        0px 0px 1px rgba(0, 0, 0, 0.04);
+                }
             }
         }
     }
@@ -169,6 +195,48 @@ main {
             p {
                 font-size: 16px;
                 line-height: 24px;
+            }
+        }
+    }
+}
+
+// Стили для тёмной темы
+body.dark {
+    .report-card {
+        &__description {
+            .description {
+                background: $dark-block-bg-color;
+                &__name {
+                    color: $accent-color;
+                }
+                &__text {
+                    color: $dark-text-color;
+                }
+            }
+        }
+        &__list-wrapper {
+            .cardlist {
+                &__item {
+                    background: $dark-block-bg-color;
+
+                    .item-image {
+                        background: $dark-element-color;
+
+                        .no-image {
+                            svg {
+                                fill: $dark-icon-color;
+                            }
+                        }
+                    }
+
+                    .item-title {
+                        color: $dark-text-color;
+                    }
+
+                    &:hover {
+                        box-shadow: none;
+                    }
+                }
             }
         }
     }

@@ -24,7 +24,11 @@ class CardListItem extends React.Component {
         const { card, onClick } = this.props;
         return (
             <div className='cardlist__item' onClick={() => onClick(card)}>
-                <div className='item-image'></div>
+                <div className='item-image'>
+                    <div className='no-image'>
+                        <SvgIcon id='image-icon' />
+                    </div>
+                </div>
                 <div className='item-options'>
                     <div className='item-options__date'>
                         <SvgIcon id='clock-icon' />

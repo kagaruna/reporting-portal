@@ -34,7 +34,8 @@ class ResponsiveTable extends React.Component {
         const { tableWidth } = this.state;
 
         // Базовый расчет размера шрифта
-        let fontSize = tableWidth / 50;
+        // let fontSize = tableWidth / 50;
+        let fontSize = tableWidth / 65;
 
         // Настройка максимального и минимального размера шрифта
         const minFontSize = 12;
@@ -48,9 +49,10 @@ class ResponsiveTable extends React.Component {
                 <table className='adaptive-table' ref={this.tableRef}>
                     <thead>
                         <tr>
-                            <th>Header 1</th>
-                            <th>Header 2</th>
-                            <th>Header 3</th>
+                            <th>1</th>
+                            <th>2</th>
+                            <th>3</th>
+                            <th>4</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -64,6 +66,9 @@ class ResponsiveTable extends React.Component {
                                 </td>
                                 <td style={{ fontSize: `${fontSize}px` }}>
                                     {row.column3}
+                                </td>
+                                <td style={{ fontSize: `${fontSize}px` }}>
+                                    {row.column4}
                                 </td>
                             </tr>
                         ))}

@@ -59,3 +59,15 @@
         }
     }
 }
+
+// Стили для тёмной темы
+body.dark {
+    .react-tabs {
+        &__tab {
+            color: $dark-icon-color;
+            &--selected {
+                color: $dark-text-color;
+            }
+        }
+    }
+}
