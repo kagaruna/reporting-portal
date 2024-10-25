@@ -49,6 +49,22 @@
     }
 }
 
+// Стили для тёмной темы
+body.dark {
+    .development-mode {
+        background: $dark-block-bg-color;
+        color: $dark-text-color;
+        .header {
+            span {
+                color: $accent-color;
+            }
+        }
+    }
+    .development-bg {
+        // нужно  будет заменить картинку подходящую к тёмной теме
+    }
+}
+
 @media (max-height: 920px) {
     .development-mode {
         padding: 80px 50% 0 80px;

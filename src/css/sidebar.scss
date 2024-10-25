@@ -131,3 +131,49 @@
         }
     }
 }
+
+// Стили для тёмной темы
+body.dark {
+    #left-sidebar {
+        background: $dark-block-bg-color;
+
+        .left-sidebar {
+            &__functions {
+                &::after {
+                    background: $dark-element-color;
+                }
+
+                .sidebar-btns {
+                    &__item {
+                        background: $dark-element-color;
+                        svg {
+                            fill: $dark-icon-color;
+                        }
+                    }
+                }
+            }
+
+            &__menu {
+                &-item {
+                    &--name {
+                        color: $icon-color;
+                    }
+
+                    &--toggle {
+                        svg {
+                            fill: $dark-icon-color;
+                        }
+                    }
+                    &:hover {
+                        .left-sidebar__menu-item--name {
+                            color: $dark-text-color;
+                        }
+                        svg {
+                            fill: $accent-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

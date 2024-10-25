@@ -99,6 +99,7 @@ header {
         }
     }
     .settings {
+        margin: 4px 0 0 24px;
         svg {
             width: 24px;
             height: 24px;
@@ -108,6 +109,36 @@ header {
             svg {
                 cursor: pointer;
                 fill: $primary-color;
+            }
+        }
+    }
+}
+
+// Стили для тёмной темы
+body.dark {
+    header {
+        background: $dark-block-bg-color;
+    }
+    .main-menu {
+        a {
+            color: $white-color;
+
+            svg {
+                fill: $dark-icon-color;
+            }
+
+            &:hover,
+            &.active {
+                svg {
+                    fill: $accent-color;
+                }
+            }
+
+            &.disabled {
+                color: $dark-icon-color;
+                svg {
+                    fill: $dark-icon-color;
+                }
             }
         }
     }

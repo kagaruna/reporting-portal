@@ -1,0 +1,125 @@
+@import "./colors.scss";
+
+.flexible-modal {
+    position: absolute;
+    z-index: 1;
+    border: none;
+    background: $white-color;
+    border-radius: 8px;
+    // -webkit-user-select: none;
+    // -moz-user-select: none;
+    // -ms-user-select: none;
+    // user-select: none;
+
+    box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.06),
+        0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
+}
+.flexible-modal-mask {
+    position: fixed;
+    height: 100%;
+    background: $text-color;
+    opacity: 0.7;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.flexible-modal-resizer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    cursor: nwse-resize;
+    margin: 10px;
+    border-bottom: solid 2px $text-color;
+    border-right: solid 2px $text-color;
+}
+.flexible-modal-drag-area {
+    // background: rgba(22, 22, 333, 0.2);
+    background: none;
+    height: 60px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: move;
+    // background: none;
+    // height: auto;
+}
+
+.close-modal {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    top: 24px;
+    right: 24px;
+    z-index: 10;
+    cursor: pointer;
+
+    svg {
+        width: 14px;
+        height: 14px;
+    }
+}
+.create-pdf {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+    top: 16px;
+    right: 64px;
+    border-radius: 8px;
+    background: $accent-color;
+    color: $white-color;
+    font-size: 16px;
+    font-weight: 500;
+    z-index: 100;
+    padding: 0 16px;
+    cursor: pointer;
+}
+.card-wrapper {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    padding: 22px 24px;
+
+    &__title {
+        font-size: 24px;
+        line-height: 24px;
+        font-weight: 500;
+        padding: 0 0 16px 0;
+    }
+
+    &__description {
+        font-size: 16px;
+        line-height: 24px;
+        padding: 0 0 24px 0;
+    }
+}
+
+// Стили для тёмной темы
+body.dark {
+    .flexible-modal {
+        background: $dark-block-bg-color;
+    }
+    .flexible-modal-mask {
+        background: $dark-bg-color;
+        opacity: 0.8;
+    }
+    .flexible-modal-resizer {
+        border-bottom: solid 2px $dark-element-color;
+        border-right: solid 2px $dark-element-color;
+    }
+    .close-modal {
+        svg {
+            fill: $dark-icon-color;
+        }
+        &:hover {
+            svg {
+                fill: $dark-text-color;
+            }
+        }
+    }
+}
