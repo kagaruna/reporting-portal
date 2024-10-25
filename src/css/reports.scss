@@ -17,6 +17,23 @@ main {
 
 .reports-page {
     display: flex;
+
+    // для демо, потом __demo и всё внутри удалить
+    &__demo {
+        display: flex;
+
+        main {
+            margin: 0;
+
+            .report-card__list-wrapper {
+                margin: 0;
+                padding: 0;
+                height: 100%;
+                overflow-y: auto;
+                overflow-x: hidden;
+            }
+        }
+    }
 }
 
 .report-card {
@@ -171,6 +188,12 @@ main {
                     box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.06),
                         0px 2px 6px rgba(0, 0, 0, 0.04),
                         0px 0px 1px rgba(0, 0, 0, 0.04);
+                }
+
+                &.demo {
+                    background: #e9f0f5;
+                    pointer-events: none;
+                    min-height: 350px;
                 }
             }
         }

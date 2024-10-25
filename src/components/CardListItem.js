@@ -22,22 +22,27 @@ import SvgIcon from "./SvgIcon";
 class CardListItem extends React.Component {
     render() {
         const { card, onClick } = this.props;
-        return (
-            <div className='cardlist__item' onClick={() => onClick(card)}>
-                <div className='item-image'>
-                    <div className='no-image'>
-                        <SvgIcon id='image-icon' />
+
+        if (card.demo) {
+            return <div className='cardlist__item demo'></div>;
+        } else {
+            return (
+                <div className='cardlist__item' onClick={() => onClick(card)}>
+                    <div className='item-image'>
+                        <div className='no-image'>
+                            <SvgIcon id='image-icon' />
+                        </div>
                     </div>
-                </div>
-                <div className='item-options'>
-                    <div className='item-options__date'>
-                        <SvgIcon id='clock-icon' />
-                        {card.update}
+                    <div className='item-options'>
+                        <div className='item-options__date'>
+                            <SvgIcon id='clock-icon' />
+                            {card.update}
+                        </div>
                     </div>
+                    <div className='item-title'>{card.title}</div>
                 </div>
-                <div className='item-title'>{card.title}</div>
-            </div>
-        );
+            );
+        }
     }
 }
 

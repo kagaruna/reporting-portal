@@ -7,16 +7,88 @@
 
 .adaptive-table {
     width: 100%;
-    border-collapse: collapse;
-}
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 8px;
 
-.adaptive-table th,
-.adaptive-table td {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-}
+    th,
+    td {
+        border: 1px solid $element-color;
+        border-style: none solid solid none;
+        text-align: left;
+        padding: 7px 12px;
+    }
 
-.adaptive-table th {
-    background-color: #f2f2f2;
+    th {
+        position: relative;
+        background-color: $bg-color;
+        border-top-style: solid;
+        padding-right: 28px;
+
+        &:first-child {
+            border-radius: 8px 0 0 0;
+            border-left-style: solid;
+        }
+        &:last-child {
+            border-radius: 0 8px 0 0;
+        }
+
+        &.sort {
+            cursor: pointer;
+        }
+    }
+    tr {
+        td {
+            &:first-child {
+                border-left-style: solid;
+            }
+        }
+    }
+    tr:last-child {
+        td {
+            &:first-child {
+                border-bottom-left-radius: 10px;
+            }
+            &:last-child {
+                border-bottom-right-radius: 10px;
+            }
+        }
+    }
+
+    &__sort {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 12px;
+        right: 10px;
+        width: 17px;
+        height: 16px;
+
+        svg {
+            width: 7px;
+            height: 14px;
+        }
+    }
+
+    &__edit,
+    &__delete {
+        position: relative;
+        width: 24px;
+        height: 24px;
+        padding: 4px;
+        cursor: pointer;
+
+        svg {
+            width: 16px;
+            height: 16px;
+            fill: $element-color;
+        }
+
+        &:hover {
+            svg {
+                fill: $accent-color;
+            }
+        }
+    }
 }

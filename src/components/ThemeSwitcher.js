@@ -29,7 +29,7 @@ export default class ThemeSwitcher extends Component {
 
     render() {
         return (
-            <label class='form-switch'>
+            <label className='form-switch'>
                 <input
                     type='checkbox'
                     onChange={this.toggleTheme}

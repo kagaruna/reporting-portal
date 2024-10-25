@@ -45,22 +45,28 @@ class Header extends React.Component {
                 </Link>
 
                 <nav className='main-menu'>
-                    <NavLink to='/' className={setActive}>
+                    {/* <NavLink to='/' className={setActive}>
                         <SvgIcon id='personal-icon' className='nav-icon' />
                         Личный кабинет
-                    </NavLink>
+                    </NavLink> */}
                     <NavLink className={setActive} to='/reports'>
                         <SvgIcon id='report-icon' className='nav-icon' />
-                        Отчетность
+                        {/* Отчетность */}
+                        Каталог отчетных форм
                     </NavLink>
-                    <NavLink className={setActive} to='/help'>
+                    <NavLink
+                        className={setActive}
+                        to={{
+                            pathname: "/indicators",
+                            state: { title: "Реестр показателей" },
+                        }}>
+                        <SvgIcon id='catalog-icon' className='nav-icon' />
+                        Реестр показателей
+                    </NavLink>
+                    <NavLink className='disabled' to='/help'>
                         <SvgIcon id='help-icon' className='nav-icon' />
                         Помощь
                     </NavLink>
-                    <a href='/' className='disabled'>
-                        <SvgIcon id='info-icon' className='nav-icon' />
-                        Реестр показателей
-                    </a>
                     <NavLink className={setActive} to='/about'>
                         <SvgIcon id='info-icon' className='nav-icon' />О портале
                     </NavLink>
